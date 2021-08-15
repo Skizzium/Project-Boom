@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[37,)"
+license="GPLv3"
+#issueTrackerURL=""
+[[mods]]
+modId="toomuchtnt"
+version="${file.jarVersion}"
+displayName="TooMuchTNT: Reborn [Project Boom]"
+#updateJSONURL=""
+#displayURL=""
+logoFile="logo.png"
+credits=""
+authors="Skizzium [New Ownership], uSkizzik [Rewriting & Maintaining The Mod], MinecraftTNTstuff [Original Author]"
+description='''
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis lacinia magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sagittis luctus odio eu tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque volutpat ligula eget lacus auctor sagittis. In hac habitasse platea dictumst. Nunc gravida elit vitae sem vehicula efficitur. Donec mattis ipsum et arcu lobortis, eleifend sagittis sem rutrum. Cras pharetra quam eget posuere fermentum. Sed id tincidunt justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+'''
+[[dependencies.toomuchtnt]]
+    modId="forge"
+    mandatory=true
+    versionRange="[37,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.toomuchtnt]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.17.1,1.18)"
+    ordering="NONE"
+    side="BOTH"
