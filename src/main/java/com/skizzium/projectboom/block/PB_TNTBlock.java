@@ -15,11 +15,13 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import javax.annotation.Nullable;
 
 public class PB_TNTBlock extends TntBlock {
-    private static EntityType<? extends PB_PrimedTNT> TNTType;
+    private EntityType<? extends PB_PrimedTNT> TNTEntity;
+    private float explosionLevel;
 
-    public PB_TNTBlock(EntityType<? extends PB_PrimedTNT> TNT, Properties properties) {
+    public PB_TNTBlock(float level, EntityType<? extends PB_PrimedTNT> TNTType, Properties properties) {
         super(properties);
-        TNTType = TNT;
+        this.TNTEntity = TNTType;
+        this.explosionLevel = level;
     }
 
     @Override
@@ -30,21 +32,21 @@ public class PB_TNTBlock extends TntBlock {
     @Override
     public void wasExploded(Level world, BlockPos pos, Explosion explosion) {
         if (!world.isClientSide) {
-            PB_PrimedTNT tnt = new PB_PrimedTNT(TNTType, world, pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, explosion.getSourceMob());
+            PB_PrimedTNT TNT = new PB_PrimedTNT(TNTEntity, this, world, explosionLevel, pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, explosion.getSourceMob());
 
-            int fuse = tnt.getFuse();
-            tnt.setFuse((short)(world.random.nextInt(fuse / 4) + fuse / 8));
+            int fuse = TNT.getFuse();
+            TNT.setFuse((short)(world.random.nextInt(fuse / 4) + fuse / 8));
 
-            world.addFreshEntity(tnt);
+            world.addFreshEntity(TNT);
         }
     }
 
-    private static void explode(Level world, BlockPos pos, @Nullable LivingEntity igniter) {
+    private void explode(Level world, BlockPos pos, @Nullable LivingEntity igniter) {
         if (!world.isClientSide) {
-            PB_PrimedTNT tnt = new PB_PrimedTNT(TNTType, world, pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, igniter);
+            PB_PrimedTNT TNT = new PB_PrimedTNT(TNTEntity, this, world, explosionLevel, pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, igniter);
 
-            world.addFreshEntity(tnt);
-            world.playSound(null, tnt.getX(), tnt.getY(), tnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+            world.addFreshEntity(TNT);
+            world.playSound(null, TNT.getX(), TNT.getY(), TNT.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
             world.gameEvent(igniter, GameEvent.PRIME_FUSE, pos);
         }
     }

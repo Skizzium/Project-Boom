@@ -1,3 +1,6 @@
 {
-  "block.toomuchtnt.basic_tnt": "Basic TNT"
+  "itemGroup.too_much_tnt_tab": "Too Much TNT",
+
+  "block.toomuchtnt.basic_tnt": "Basic TNT",
+  "block.toomuchtnt.tnt_x5": "TNT x5"
 }

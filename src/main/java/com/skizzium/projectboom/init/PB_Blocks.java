@@ -14,7 +14,11 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 import java.util.function.Supplier;
 
 public class PB_Blocks {
-    public static final RegistryObject<Block> BASIC_TNT = registerNoItem("basic_tnt", () -> new PB_TNTBlock(PB_Entities.BASIC_TNT, BlockBehaviour.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS)));
+    public static final RegistryObject<PB_TNTBlock> BASIC_TNT = registerNoItem("basic_tnt", () -> new PB_TNTBlock(4.0F, PB_Entities.BASIC_TNT, BlockBehaviour.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS).noDrops()));
+    public static final RegistryObject<PB_TNTBlock> TNT_X5 = register("tnt_x5", () -> new PB_TNTBlock(8.0F, PB_Entities.TNT_X5, BlockBehaviour.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS)), PB_Registry.TOO_MUCH_TNT_TAB, Rarity.COMMON, false);
+    public static final RegistryObject<PB_TNTBlock> TNT_X20 = register("tnt_x20", () -> new PB_TNTBlock(18.0F, PB_Entities.TNT_X20, BlockBehaviour.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS)), PB_Registry.TOO_MUCH_TNT_TAB, Rarity.COMMON, false);
+    public static final RegistryObject<PB_TNTBlock> TNT_X100 = register("tnt_x100", () -> new PB_TNTBlock(40.0F, PB_Entities.TNT_X100, BlockBehaviour.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS)), PB_Registry.TOO_MUCH_TNT_TAB, Rarity.COMMON, false);
+    public static final RegistryObject<PB_TNTBlock> TNT_X500 = register("tnt_x500", () -> new PB_TNTBlock(70.0F, PB_Entities.TNT_X500, BlockBehaviour.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS)), PB_Registry.TOO_MUCH_TNT_TAB, Rarity.COMMON, false);
 
     private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block){
         return PB_Registry.BLOCKS.register(name, block);

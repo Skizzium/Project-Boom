@@ -1,7 +1,9 @@
 package com.skizzium.projectboom.init;
 
 import com.skizzium.projectboom.ProjectBoom;
+import com.skizzium.projectboom.itemgroup.TooMuchTNTTab;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,6 +15,8 @@ public class PB_Registry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ProjectBoom.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ProjectBoom.MOD_ID);
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, ProjectBoom.MOD_ID);
+
+    public static final CreativeModeTab TOO_MUCH_TNT_TAB = new TooMuchTNTTab("too_much_tnt_tab");
 
     public static void register() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
