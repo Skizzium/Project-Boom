@@ -2,5 +2,8 @@
   "itemGroup.too_much_tnt_tab": "Too Much TNT",
 
   "block.toomuchtnt.basic_tnt": "Basic TNT",
-  "block.toomuchtnt.tnt_x5": "TNT x5"
+  "block.toomuchtnt.tnt_x5": "TNT x5",
+  "block.toomuchtnt.tnt_x20": "TNT x20",
+  "block.toomuchtnt.tnt_x100": "TNT x100",
+  "block.toomuchtnt.tnt_x500": "TNT x500"
 }
